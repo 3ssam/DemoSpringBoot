@@ -1,5 +1,6 @@
 package mo.essam.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,17 @@ public class Student {
     private int id;
     private String name;
     private String technology;
+
+    @Autowired
+    private Laptop laptop;
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
 
     public Student() {
         System.out.println("it Created");
@@ -46,5 +58,6 @@ public class Student {
 
     public void justMessage() {
         System.out.println("it is Work");
+        laptop.compile();
     }
 }
